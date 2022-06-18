@@ -1,0 +1,61 @@
+<br>
+<br>
+<div class="container">
+    <div class='card'>
+        <div class='card-header'>
+          {{pageTitle}}
+        </div>
+        <div class='card-body'>
+          <div class='row'>
+            <div class='col-md-2'>Search by:</div>
+            <div class='col-md-2'>
+              <input type='text'
+                    [(ngModel)]='listFilter'/>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-6'>
+              <!-- <h4>Filtered by:{{listFilter}}</h4> -->
+              <br>
+            </div>
+          </div>
+          <div class='table-responsive'>
+            <table class='table' *ngIf="users.length">
+              <thead>
+                <tr>
+                  <th>
+                    <button class='btn btn-primary'
+                    (click)='toogleImage()'>{{showImage ? 'Hide':'Show'}} Image
+                    </button>
+                  </th>
+                  <th>UserName</th>
+                  <th>Role</th>
+                  <th>Email</th>
+                  <th>Password</th>
+                  <th>Contact</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of filteredUsers">
+                    <td>
+                      <img *ngIf="showImage"
+                          [src]="user.imageURL"
+                          [title]="user.UserName"
+                          [style.width.px]='imageWidth'
+                          [style.margin.px]='imageMargin'>
+                    </td>
+                    <td>{{ user.UserName }}</td>
+                    <td>{{ user.Role }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td>{{ user.Password }}</td>
+                    <td>{{ user.Contact }}</td>
+                    <td><a routerLink='Edit/{{user.id}}' class="fa fa-edit"></a><a routerLink="/users" (click)="deletesUser(user.id)" class="fa fa-trash-o"></a></td>
+                </tr>
+                <button class="btn btn-primary AddButton" routerLink="/register">Add User</button>
+              </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+</div>

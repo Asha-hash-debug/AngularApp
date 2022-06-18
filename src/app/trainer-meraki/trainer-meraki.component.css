@@ -1,0 +1,21 @@
+h3{
+    padding-left: 40px;
+}
+
+.fa-check-circle {
+    color: green;
+    font-size: xx-large;
+  }
+
+.fa-dot-circle-o {
+    color: gray;
+    font-size: larger;
+}
+.fa-warning{
+    color: red;
+    font-size: xx-large;
+}
+
+button:active{
+    background: green;
+}

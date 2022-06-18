@@ -1,0 +1,65 @@
+<br>
+<br>
+<div class="container">
+        <h1>Meraki ECMS Lab Configuration</h1>
+        
+        <mat-vertical-stepper  #stepper>
+        
+        <mat-step [completed]="false" label="Mandatory details To be Filled">
+            <mat-form-field appearance="fill">
+                <mat-label>Select Organization</mat-label>
+                <mat-select [(ngModel)]="selectedOrg" (ngModelChange)="OrganizationSelected($event)">
+                <mat-option *ngFor="let org of organizations" [value]="org">
+                    {{org}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Select Network</mat-label>
+                <mat-select [(ngModel)]="selectedNetwork" (ngModelChange)="NetworkSelected($event)" multiple>
+                <mat-option *ngFor="let network of ECMSNetworks" [value]="network">
+                    {{network}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-button matStepperNext>Next</button>
+        </mat-step>
+            
+        <mat-step label="Configuring ECMS Lab 3">
+            <br>
+            <p *ngIf="Step1==true"><i class="fa fa-check-circle"></i> Step 1.Injecting MX L3 Outbound Firewall Deny All Rule</p>
+            <p *ngIf="Step1==false"><i class="fa fa-warning"></i> Step 1.Injecting MX L3 Outbound Firewall Deny All Rule</p>
+            <p *ngIf="Step1=='processing'"><i class="fa fa-dot-circle-o"></i> Step 1.Injecting MX L3 Outbound Firewall Deny All Rule</p>
+
+            <p *ngIf="Step2==true"><i class="fa fa-check-circle"></i> Step 2.Disabling Enabled and POE fields of SwitchPort 2 of MS Switch</p>
+            <p *ngIf="Step2==false"><i class="fa fa-warning"></i> Step 2.Disabling Enabled and POE fields of SwitchPort 2 of MS Switch</p>
+            <p *ngIf="Step2=='processing'"><i class="fa fa-dot-circle-o"></i> Step 2.Disabling Enabled and POE fields of SwitchPort 2 of MS Switch</p>
+            
+            <p *ngIf="Step3==true"><i class="fa fa-check-circle"></i> Step 3.Limited Network Access</p>
+            <p *ngIf="Step3==false"><i class="fa fa-warning"></i> Step 3.Limited Network Access</p>
+            <p *ngIf="Step3=='processing'"><i class="fa fa-dot-circle-o"></i> Step 3.Limited Network Access</p>
+
+            <h3 *ngIf="Step3a==true"><i class="fa fa-check-circle"></i> a. Modifying SD-WAN Uplink Bandwidth Limits of WAN1 and WAN2</h3>
+            <h3 *ngIf="Step3a==false"><i class="fa fa-warning"></i> a. Modifying SD-WAN Uplink Bandwidth Limits of WAN1 and WAN2</h3>
+            <h3 *ngIf="Step3a=='processing'"><i class="fa fa-dot-circle-o"></i> a. Modifying SD-WAN Uplink Bandwidth Limits of WAN1 and WAN2</h3>
+
+            <h3 *ngIf="Step3b==true"><i class="fa fa-check-circle"></i> b. Modifying SD-WAN's Global Bandwidth Limit i.e Per-Client-Limit</h3>
+            <h3 *ngIf="Step3b==false"><i class="fa fa-warning"></i> b. Modifying SD-WAN's Global Bandwidth Limit i.e Per-Client-Limit</h3>
+            <h3 *ngIf="Step3b=='processing'"><i class="fa fa-dot-circle-o"></i> b. Modifying SD-WAN's Global Bandwidth Limit i.e Per-Client-Limit</h3>
+
+            <h3 *ngIf="Step3c==true"><i class="fa fa-check-circle"></i>  c. Modifying Wireless Corporate SSID's Per Client Bandwidth Limit to 10Kbps</h3>
+            <h3 *ngIf="Step3c==false"><i class="fa fa-warning"></i>  c. Modifying Wireless Corporate SSID's Per Client Bandwidth Limit to 10Kbps</h3>
+            <h3 *ngIf="Step3c=='processing'"><i class="fa fa-dot-circle-o"></i>  c. Modifying Wireless Corporate SSID's Per Client Bandwidth Limit to 10Kbps</h3>
+
+            <p *ngIf="Step4==true"><i class="fa fa-check-circle"></i>  Step 4.Modifying Allowed Vlan's field of Switch Port 1 for denying VLAN 10</p>
+            <p *ngIf="Step4==false"><i class="fa fa-warning"></i>  Step 4.Modifying Allowed Vlan's field of Switch Port 1 for denying VLAN 10</p>
+            <p *ngIf="Step4=='processing'"><i class="fa fa-dot-circle-o"></i> Step 4.Modifying Allowed Vlan's field of Switch Port 1 for denying VLAN 10</p>
+
+            <button mat-button (click)="ConfigureLab3(OrganizationName,NetworkName)">Configure</button>
+            <button mat-button matStepperNext (click)="Reset()">Finish</button>
+        </mat-step>
+            
+        </mat-vertical-stepper>
+    </div>

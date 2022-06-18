@@ -1,0 +1,64 @@
+<br>
+<br>
+<div class="container">
+    <h1>Meraki ECMS Lab Configuration</h1>
+      
+    <mat-form-field appearance="fill">
+      <mat-label>Select Organization</mat-label>
+      <mat-select [(ngModel)]="selectedOrg" (ngModelChange)="OrganizationSelected($event)">
+        <mat-option *ngFor="let org of organizations" [value]="org">
+          {{org}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Network</mat-label>
+      <mat-select [(ngModel)]="selectedNetwork" (ngModelChange)="NetworkSelected($event)" multiple>
+        <mat-option *ngFor="let network of ECMSNetworks" [value]="network"> 
+              {{network}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-vertical-stepper #stepper>
+      
+      <mat-step label="Network Down">
+          <p>Step 1.Injecting MX L3 Outbound Firewall Deny All Rule</p>
+          <br>
+          <button mat-button (click)="Step1(OrganizationName)">Configure</button>
+          <button mat-button matStepperNext>Next</button>
+      </mat-step>
+        
+      <mat-step label="Offline Device">
+        <p>Step 2.Disabling Enabled and POE fields of SwitchPort 2 of MS Switch</p>
+        <div>
+          <button mat-button (click)="Step2(OrganizationName,NetworkName)">Configure</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+        
+      <mat-step label="Limited Network Access">
+        <div>
+            <div *ngFor="let step of Steps">
+              <br> <input type="checkbox" name={{step}} [value]="step" (change)="Getsteps($event,step)">{{ step }}
+            </div>
+        </div>
+        <br>
+        <div>
+          <button mat-button (click)="Step3(OrganizationName,NetworkName)">Configure</button>
+          <button mat-button matStepperNext >Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step label="Wireless Reconfiguration">
+        <p>Step 4.Modifying Allowed Vlan's field of Switch Port 1 for denying VLAN 10</p>
+        <div>
+          <br>
+          <button mat-button (click)="Step4(OrganizationName,NetworkName)">Configure</button>
+          <button mat-button (click)="Reset()">Finish</button>
+        </div>
+      </mat-step>
+        
+    </mat-vertical-stepper>
+</div>

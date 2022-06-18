@@ -1,0 +1,78 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+    </button>
+    <img class="img-responsive" src="assets/images/bitvuenetworks.jpg">
+        <span class='navbar-brand'>{{title}}</span>
+      
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown">Meraki</a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a *ngIf="CheckRole()"class="dropdown-item" routerLinkActive='active' routerLink="/meraki">Admin_ECMS_Lab</a></li>
+                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/trainermeraki">Trainer_ECMS_Lab</a></li>
+                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/devicestatus">Device_Status</a></li>
+                  </ul>    
+              </li>
+          </ul>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button"
+                  data-bs-toggle="dropdown">Veocloud</a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Orchestrator</a></li>
+                    <li><a class="dropdown-item" href="#">Device_Status</a></li>
+                </ul>    
+            </li>
+        </ul>
+       
+      
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="flexExpand"></span>
+    <div >
+      <a class="login" *ngIf="!loggedin()" routerLinkActive='active' routerLink="/login">Login</a>
+      <a class="register" *ngIf="!loggedin()" routerLinkActive='active' routerLink="/register">Register</a>
+      <!-- <a class="register" *ngIf="loggedin()" routerLinkActive='active' (click)="onLogout()">Logout</a> -->
+
+      <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
+        <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
+            {{LoginUser}}
+        </a>
+        <div class="dropdown-menu" *dropdownMenu>
+            <a style="color: red;"(click)='onLogout()' class="dropdown-item">
+              <i style="color: red;"class="fa fa-sign-out"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+   
+  </mat-toolbar-row>
+</mat-toolbar>
+    
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="false" mode="side">
+    <mat-nav-list>
+      <br>
+            
+            <a id="SideNav" class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-house"></i>Home</a>
+          
+            <a id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-circle-info"></i>About Us</a>
+          
+            <a id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-gear"></i>Settings</a>
+    
+            <a *ngIf="CheckRole()"id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/users"><i class="fa fa-users"></i>Users-List</a>
+             
+            <a id="SideNav" class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-phone"></i>Contact</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 94vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+

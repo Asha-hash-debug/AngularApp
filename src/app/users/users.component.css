@@ -1,0 +1,23 @@
+a {
+    padding: 13px;
+    font-size: xx-large;
+}
+
+
+.AddButton {
+  margin: 20px;
+  background-color: red;
+  border-radius: 30px;
+  font-size: larger;
+}
+
+button {
+  background-color: cadetblue;
+  border-radius: 30px;
+}
+
+.card-header{
+  font-style: italic;
+  font-size: x-large;
+  color: rgba(202, 94, 6, 0.913);
+}

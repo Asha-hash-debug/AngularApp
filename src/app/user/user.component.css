@@ -1,0 +1,44 @@
+.UserNotFound{
+    width: 50%;
+    font-size: x-large;
+    font-style: italic;
+    padding-top: 100px;
+    color:rgb(226, 142, 211);
+}
+
+.extra_container{
+    width: 50%;
+    font-size: x-large;
+    font-style: italic;
+ }
+ 
+ .extra_container div{padding: 5px;}
+ 
+ .extra_padding {
+    padding:10px;
+    color: rgb(102, 11, 187);
+    font-size:25px;
+    font-style: italic;
+    text-indent: 100px;
+ }
+
+ .UpdateButton {
+    margin: 15px;
+    background-color: red;
+    border-radius: 25px;
+    font-size: large;
+ }
+
+ .Cancel {
+     background-color: grey;
+     border-radius: 25px;
+     font-size: large;
+ }
+
+ .ng-invalid.ng-touched {
+    border-color: red;
+  }
+  
+  .error-block {
+    color: red;
+  }

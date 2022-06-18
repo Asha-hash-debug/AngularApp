@@ -1,0 +1,72 @@
+<div *ngIf="this.UsernotFound==1" class="container extra_container">
+    <div clas="row">
+        <div class="col-md-6 extra_padding">Update User</div>
+    </div>
+    <form [formGroup]="angForm" (ngSubmit)="editData(angForm)" autocomplete="off">
+    <input type="hidden" name="id" formControlname="id">
+    <div class="row">
+        <div class="col-md-5">UserName</div>
+        <div class="col-md-6">
+            <input #name type="text" class="form-control" name="UserName" formControlName="UserName" (change)="textname(name.value)">
+            <span *ngIf="!UserName.valid && (UserName.touched)"
+            class="error-block">
+              Please provide name
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">Role</div>
+        <div class="col-md-6"><input type="text" class="form-control" name="Role" formControlName="Role"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">Email</div>
+        <div class="col-md-6"><input type="text" class="form-control" name="Email" formControlName="Email">
+            <span *ngIf="!Email.valid && (Email.touched)" class="error-block">
+                <span *ngIf="Email.hasError('required')">
+                    Please provide email id
+                </span>
+                <span *ngIf="Email.hasError('email')">
+                  Please provide valid email id
+                </span>
+              </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">Password</div>
+        <div class="col-md-6"><input type="text" class="form-control" name="Password" formControlName="Password">
+            <span *ngIf="!Password.valid && (Password.touched)" class="error-block">
+                <span *ngIf="Password.hasError('required')">
+                  Please provide password
+                </span>
+                <span *ngIf="Password.hasError('minlength')">
+                  Password should not be lesser than 8 character
+                </span>
+              </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">Contact</div>
+        <div class="col-md-6"><input type="text" class="form-control" name="Contact" formControlName="Contact">
+            <span  *ngIf="!Contact.valid && (Contact.touched)" class="error-block">
+                <span *ngIf="Contact.hasError('required')">
+                  Please provide mobile number
+                </span>
+                <span *ngIf="Contact.errors?.['maxlength']" class="error-block">
+                  Invalid mobile number
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary UpdateButton" name="submit">Update</button>
+            <button type="button" class="btn btn-primary Cancel" name="button" (click)="GotoUsers()">Cancel</button>
+        </div>
+        
+    </div>
+</form>
+</div>
+
+<div *ngIf="this.UsernotFound==0" class="container UserNotFound">
+    <h2>Warning : User id doesn't exist in DB to Edit</h2>
+</div>

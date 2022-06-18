@@ -1,0 +1,42 @@
+a {
+    background-color: white;
+    color: white;
+}
+
+.navbar-brand {
+    font-style: italic;
+    font-size: xx-large;
+    padding: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top:380px;
+    background-color: DarkSalmon;
+    color: white;
+    padding-bottom: 15px;
+    
+  }
+
+  p{
+      font-size: 20px;
+      text-align: center;
+      color:white;
+  }
+
+  .fa-whatsapp {
+    color: green;
+    font-size: 30px;
+    margin-top: 350px;
+    margin-left: 450px;
+  }
+
+  .fa-envelope {
+    color: rgb(241, 45, 77);
+    font-size: 30px;
+    margin-left: 350px;
+  }
+  
+  .container{
+    padding-top: 50px;
+}

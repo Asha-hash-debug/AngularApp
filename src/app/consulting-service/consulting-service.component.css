@@ -1,0 +1,28 @@
+p{
+    line-height:22px;
+    text-align:justify;
+    font-size: large;
+    line-height:30px;
+}
+
+
+h4{
+    color:#068E8C; 
+    letter-spacing:1px; 
+    font-size:30px;
+    font-style: italic;
+}
+
+h4::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid orange;
+    width: 25%;
+    position: relative;
+    bottom: -6px; /* your padding + border-width */
+  }
+
+h3 {
+    font-style: italic;
+    color: pink;
+}

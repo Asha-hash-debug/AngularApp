@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<div *ngIf="status==false" class="container">
+  <h3 style="color:red;">Device Status Tracking has stopped...Press Start Button To Enable</h3>
+</div>
+<div *ngIf="status==true" class="container">
+  <h3 style="color: green;">Device Status Tracking is in progress...</h3>
+</div>
+<div class="container">
+  <h1>Meraki Device Status</h1>
+      <div *ngFor="let item of TotalNetworkDevices">
+        <div class="alert alert-danger" role="alert" *ngFor="let device of item.value">
+          <p>{{ device}} present in {{item.key}} network is dormant</p>
+        </div>
+      </div>
+      <mat-form-field appearance="fill">
+          <mat-label>Select Organization</mat-label>
+          <mat-select [(ngModel)]="selectedOrg" (ngModelChange)="OrganizationSelected($event)">
+            <mat-option *ngFor="let org of organizations" [value]="org">{{org}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Select Network</mat-label>
+          <mat-select  [(ngModel)]="selectedNetwork" (ngModelChange)="NetworkSelected($event)"  multiple>
+            <mat-option *ngFor="let network of networks" [value]="network">{{network}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>
+      <button class="start" mat-raised-button (click)="clickme(OrganizationName,selectedNetwork)">START</button>
+      <button class="stop"mat-raised-button  (click)="Reset()">STOP</button>
+</div> 
+
+
+
+

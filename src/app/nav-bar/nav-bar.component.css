@@ -1,0 +1,93 @@
+mat-toolbar{
+    width: 100%;
+}
+
+img {
+    border-radius: 50%;
+    padding-right: 5px;
+}
+
+span {
+    font-style: oblique;
+}
+
+button {
+    margin-right: 30px;
+}
+
+a{  
+    color: rgb(241, 239, 239);
+    font-size: larger;
+    padding-left:30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    font-style: italic;
+    
+}
+
+a:hover{
+    color: pink;
+}
+
+#SideNav{
+    padding: 10px 50px 10px 50px;
+    
+}
+
+#SideNav:hover{
+    color: blueviolet;
+}
+
+i{
+    padding-right: 11px;
+}
+a.nav-link active:hover {
+
+    color: blueviolet;
+}
+
+a.nav-link{
+    padding-bottom: 8px;
+    padding-right: 35px;
+    padding-left: 10px;
+
+}
+a.nav-link:hover{
+    color: rgb(245, 196, 213);
+}
+
+.login{
+    padding: 10px;
+    font-size: large;
+}
+
+.register{
+    padding: 7px;
+    font-size: large;
+}
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+mat-icon{
+    font-size: x-large;
+}
+
+mat-sidenav{
+
+     background: rgb(248, 235, 248);
+}
+
+.navbar{
+    padding: 20px;
+}
+
+.dropdown-toggle{
+    font-style: italic;
+    font-size: large;
+}
+
+
+
+

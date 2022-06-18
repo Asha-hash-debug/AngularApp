@@ -1,0 +1,29 @@
+[   
+    {
+        "ServiceTitle":"Meraki Consulting Services",
+        "ProductName":"Meraki",
+        "Offer":" We deliver quality Services, products, conultation and Installation services in Networking domain at best prices.",
+        "MoreInfo":"For More Information Please send enquiry at - info@bitvuenetworks.com"
+     },
+    {
+        "ServiceTitle":"VMware Consulting Services",
+        "ProductName":"VMware",
+        "Offer":" We deliver quality Services, products, conultation and Installation services in Networking domain at best prices.",
+        "MoreInfo":"For More Information Please send enquiry at - info@bitvuenetworks.com"
+     },
+
+     {
+        "ServiceTitle":"Cisco Consulting Services",
+        "ProductName":"Cisco",
+        "Offer":" We deliver quality Services, products, conultation and Installation services in Networking domain at best prices.",
+        "MoreInfo":"For More Information Please send enquiry at - info@bitvuenetworks.com"
+         
+     },
+     {
+        "ServiceTitle":"Aruba Consulting Services",
+        "ProductName":"Aruba",
+        "Offer":" We deliver quality Services, products, conultation and Installation services in Networking domain at best prices.",
+        "MoreInfo":"For More Information Please send enquiry at - info@bitvuenetworks.com"
+     }
+
+]

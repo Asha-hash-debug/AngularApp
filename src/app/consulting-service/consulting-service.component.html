@@ -1,0 +1,19 @@
+<div class="row">
+    <!-- <div class="col-sm-12">
+        <div class="bread01">
+            <span><a href="https://www.bitvuenetworks.com/index.php">Home </a> &gt;</span>
+            <span>Cisco Consutling Services </span>
+            <hr>   
+        </div>
+    </div> -->
+    <div class="col-sm-8" *ngFor="let service of consultingserviceList">
+            <div *ngIf="service.ProductName==Name">
+                <h4>{{service.ServiceTitle}}</h4>
+                <br>
+                <h3>{{service.ProductName}}</h3>
+                <p>{{service.Offer}}</p>
+                <br>
+                <h5>For More Information Please send enquiry at - <a href="mailto:info@bitvuenetworks.com">info@bitvuenetworks.com</a></h5>
+            </div>
+    </div>
+</div>
