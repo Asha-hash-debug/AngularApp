@@ -7,7 +7,7 @@ import { User } from './Interfaces';
   providedIn: 'root'
 })
 export class DashboardService {
-  private baseurl = "/"
+  private baseurl = '/';
 
   constructor(private http:HttpClient) { }
 
