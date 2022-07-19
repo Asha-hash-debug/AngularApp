@@ -8,7 +8,7 @@ import { IUser } from "./users";
     providedIn:'root'
 })
 export class UserService{
-    private baseUrl = 'http://127.0.0.1:5000/';
+    private baseUrl = '/';
     
     constructor(private http:HttpClient){}
 
