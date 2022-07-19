@@ -9,7 +9,7 @@ import { IUser } from './users/users';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://127.0.0.1:5000/';
+  private baseUrl = '/';
   
   LoginRole:any;
   constructor(private userService:UserService,
