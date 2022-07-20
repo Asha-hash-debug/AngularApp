@@ -60,7 +60,7 @@ import { TrainerMerakiComponent } from './trainer-meraki/trainer-meraki.componen
       {path:'devicestatus',component:DevicestatusComponent},
       {path:'**',component:WrongURLComponent},
       
-    ]
+    ], { initialNavigation:'disabled' }
     ),
     HttpClientModule,
     BrowserAnimationsModule,
