@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,FormArray,FormBuilder, EmailValidator } from '@angular/forms';
+import { UntypedFormGroup,UntypedFormControl,FormArray,FormBuilder, EmailValidator } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { UserService } from '../users/user.service';
 import { AuthService } from '../auth.service';
@@ -15,9 +15,9 @@ import { IUser } from '../users/users';
 })
 export class LoginComponent implements OnInit {
   
-  profileForm = new FormGroup({
-    Email: new FormControl('',Validators.required),
-    Password: new FormControl('',Validators.required),
+  profileForm = new UntypedFormGroup({
+    Email: new UntypedFormControl('',Validators.required),
+    Password: new UntypedFormControl('',Validators.required),
   });
   user:any={};
   error: any;

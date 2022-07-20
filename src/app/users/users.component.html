@@ -50,9 +50,9 @@
                     <td>{{ user.Email }}</td>
                     <td>{{ user.Password }}</td>
                     <td>{{ user.Contact }}</td>
-                    <td><a routerLink='Edit/{{user.id}}' class="fa fa-edit"></a><a routerLink="/users" (click)="deletesUser(user.id)" class="fa fa-trash-o"></a></td>
+                    <td><a routerLink='Edit/{{user.id}}' class="fa fa-edit" [skipLocationChange]="true"></a><a routerLink="/users" (click)="deletesUser(user.id)" class="fa fa-trash-o" [skipLocationChange]="true"></a></td>
                 </tr>
-                <button class="btn btn-primary AddButton" routerLink="/register">Add User</button>
+                <button class="btn btn-primary AddButton" routerLink="/register" [skipLocationChange]="true">Add User</button>
               </tbody>
         </table>
       </div>

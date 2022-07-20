@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../meraki/dashboard.service';
 import * as alertyfy from 'alertifyjs'
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Subscription, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -23,8 +23,8 @@ export class DevicestatusComponent implements OnInit {
   ErrorList:string[]=[];
   username: string = '';
   selectedSteps!:string[];
-  organizationList = new FormControl('');
-  NetworkList = new FormControl('');
+  organizationList = new UntypedFormControl('');
+  NetworkList = new UntypedFormControl('');
   subscription !: Subscription;
   status:any;
 
@@ -94,7 +94,7 @@ clickme(OrganizationName:any,networkList:any){
     // console.log(this.networks)
     this.subscription.unsubscribe();
     setTimeout(() => {
-      this.router.navigate(['/devicestatus'])
+      this.router.navigate(['/devicestatus'], { skipLocationChange: true })
       .then(() => {
         window.location.reload();
       });

@@ -105,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "bitvuenetworks"
+  "cli": {
+    "analytics": false
+  }
 }

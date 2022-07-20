@@ -41,7 +41,7 @@ export class NavBarComponent implements OnInit {
     localStorage.removeItem('Users');
     localStorage.removeItem('Role');
     alertyfy.success("LogOut Successful")
-    this.router.navigate(["home"])
+    this.router.navigate(["home"], { skipLocationChange: true })
   }
 
 }

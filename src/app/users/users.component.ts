@@ -72,7 +72,7 @@ export class UsersComponent implements OnInit,OnDestroy{
             this.users = this.users.filter((u: any) => u !== user_id);
             alertyfy.success("Deleted succesfully")
             setTimeout(() => {
-                this._router.navigate(['/users'])
+                this._router.navigate(['/users'], { skipLocationChange: true })
                 .then(() => {
                 window.location.reload();
             }); 

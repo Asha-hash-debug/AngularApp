@@ -8,16 +8,16 @@
       
           <ul class="navbar-nav me-auto">
               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button"
+                  <a *ngIf="CheckRole()" class="nav-link dropdown-toggle" href="#" role="button"
                     data-bs-toggle="dropdown">Meraki</a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                      <li><a *ngIf="CheckRole()"class="dropdown-item" routerLinkActive='active' routerLink="/meraki">Admin_ECMS_Lab</a></li>
-                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/trainermeraki">Trainer_ECMS_Lab</a></li>
-                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/devicestatus">Device_Status</a></li>
+                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/meraki" [skipLocationChange]="true">Admin_ECMS_Lab</a></li>
+                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/trainermeraki" [skipLocationChange]="true">Trainer_ECMS_Lab</a></li>
+                      <li><a class="dropdown-item" routerLinkActive='active' routerLink="/devicestatus" [skipLocationChange]="true">Device_Status</a></li>
                   </ul>    
               </li>
           </ul>
-          <ul class="navbar-nav me-auto">
+          <!--ul class="navbar-nav me-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button"
                   data-bs-toggle="dropdown">Veocloud</a>
@@ -26,7 +26,7 @@
                     <li><a class="dropdown-item" href="#">Device_Status</a></li>
                 </ul>    
             </li>
-        </ul>
+        </ul-->
        
       
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +34,9 @@
     </button>
     <span class="flexExpand"></span>
     <div >
-      <a class="login" *ngIf="!loggedin()" routerLinkActive='active' routerLink="/login">Login</a>
-      <a class="register" *ngIf="!loggedin()" routerLinkActive='active' routerLink="/register">Register</a>
-      <!-- <a class="register" *ngIf="loggedin()" routerLinkActive='active' (click)="onLogout()">Logout</a> -->
+      <a class="login" *ngIf="!loggedin()" routerLinkActive='active' routerLink="/login" [skipLocationChange]="true">Login</a>
+      <!--a class="register" *ngIf="!loggedin()" routerLinkActive='active' routerLink="/register" [skipLocationChange]="true">Register</a-->
+      <!-- <a class="register" *ngIf="loggedin()" routerLinkActive='active' (click)="onLogout()" [skipLocationChange]="true">Logout</a> -->
 
       <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
         <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">
@@ -56,16 +56,15 @@
   <mat-sidenav #sidenav opened="false" mode="side">
     <mat-nav-list>
       <br>
-            
-            <a id="SideNav" class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-house"></i>Home</a>
+            <!--a id="SideNav" class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"[skipLocationChange]="true"><i class="fa fa-house"></i>Home</a-->
           
-            <a id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-circle-info"></i>About Us</a>
+            <!--a id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"  [skipLocationChange]="true"><i class="fa fa-circle-info"></i>About Us</a-->
           
-            <a id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-gear"></i>Settings</a>
+            <!--a id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"  [skipLocationChange]="true"><i class="fa fa-gear"></i>Settings</a-->
     
-            <a *ngIf="CheckRole()"id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/users"><i class="fa fa-users"></i>Users-List</a>
+            <a *ngIf="CheckRole()"id="SideNav"class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/users" [skipLocationChange]="true"><i class="fa fa-users"></i>Users-List</a>
              
-            <a id="SideNav" class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home"><i class="fa fa-phone"></i>Contact</a>
+            <!--a id="SideNav" class="nav-link active" aria-current="page" routerLinkActive='active' routerLink="/home" [skipLocationChange]="true"><i class="fa fa-phone"></i>Contact</a-->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

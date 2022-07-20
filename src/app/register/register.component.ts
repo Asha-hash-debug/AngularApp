@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UserService } from '../users/user.service';
 import * as alertfy from 'alertifyjs';
 import { resetFakeAsyncZone } from '@angular/core/testing';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerationForm!: FormGroup;
+  registerationForm!: UntypedFormGroup;
   route: any;
   userSubmitted: boolean = false;
 
@@ -19,13 +19,13 @@ export class RegisterComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.registerationForm = new FormGroup({
-      UserName:new FormControl(null,Validators.required),
-      Role:new FormControl(null,Validators.required),
-      Email:new FormControl(null, [Validators.required, Validators.email]),
-      Password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      ConfirmPassword: new FormControl(null, [Validators.required]),
-      Contact: new FormControl(null, [Validators.required, Validators.maxLength(10)])
+    this.registerationForm = new UntypedFormGroup({
+      UserName:new UntypedFormControl(null,Validators.required),
+      Role:new UntypedFormControl(null,Validators.required),
+      Email:new UntypedFormControl(null, [Validators.required, Validators.email]),
+      Password: new UntypedFormControl(null, [Validators.required, Validators.minLength(8)]),
+      ConfirmPassword: new UntypedFormControl(null, [Validators.required]),
+      Contact: new UntypedFormControl(null, [Validators.required, Validators.maxLength(10)])
       },this.passwordMatchingValidator);
   }
 
@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
         this.registerationForm.reset();
         this.userSubmitted=false;
         alertfy.success('Congrats,You are successfully registered');
-        this.router.navigate(["/login"])
+        this.router.navigate(["/login"], { skipLocationChange: true , replaceUrl: false })
   }else{
     alertfy.error('Kindly provide the reguired fields');
   }
@@ -63,27 +63,27 @@ onReset(): void{
 }
 
   get UserName() {
-      return this.registerationForm.get('UserName') as FormControl;
+      return this.registerationForm.get('UserName') as UntypedFormControl;
   }
 
   get Role() {
-    return this.registerationForm.get('Role') as FormControl;
+    return this.registerationForm.get('Role') as UntypedFormControl;
 }  
 
   get Email() {
-    return this.registerationForm.get('Email') as FormControl;
+    return this.registerationForm.get('Email') as UntypedFormControl;
   }
 
   get Password() {
-      return this.registerationForm.get('Password') as FormControl;
+      return this.registerationForm.get('Password') as UntypedFormControl;
     }
   
   get ConfirmPassword() {
-      return this.registerationForm.get('ConfirmPassword') as FormControl;
+      return this.registerationForm.get('ConfirmPassword') as UntypedFormControl;
     }
   
   get Contact() {
-      return this.registerationForm.get('Contact') as FormControl;
+      return this.registerationForm.get('Contact') as UntypedFormControl;
     }
 
 }

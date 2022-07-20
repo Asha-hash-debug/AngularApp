@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../users/user.service';
 
@@ -10,7 +10,7 @@ import { UserService } from '../users/user.service';
 })
 export class UserComponent implements OnInit {
 
-  angForm : FormGroup
+  angForm : UntypedFormGroup
   error: any;
   subscription: any;
   id: any;
@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
   UserNameChange="";
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private route:Router,
     private userService:UserService,
     private activeRoute:ActivatedRoute
@@ -115,22 +115,22 @@ editData(f:any){
   }
 
   get UserName() {
-    return this.angForm.get('UserName') as FormControl;
+    return this.angForm.get('UserName') as UntypedFormControl;
 }
 
 get Role() {
-  return this.angForm.get('Role') as FormControl;
+  return this.angForm.get('Role') as UntypedFormControl;
 }  
 
 get Email() {
-  return this.angForm.get('Email') as FormControl;
+  return this.angForm.get('Email') as UntypedFormControl;
 }
 
 get Password() {
-    return this.angForm.get('Password') as FormControl;
+    return this.angForm.get('Password') as UntypedFormControl;
   }
 
 get Contact() {
-    return this.angForm.get('Contact') as FormControl;
+    return this.angForm.get('Contact') as UntypedFormControl;
   }
 }

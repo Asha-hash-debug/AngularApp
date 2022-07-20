@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { DashboardService } from './dashboard.service';
@@ -37,7 +37,7 @@ export class MerakiComponent implements OnInit {
   ECMSNetworks: any =[];
 
   constructor(private dashboardservice:DashboardService,private _router:Router,
-    private _formBuilder: FormBuilder){}
+    private _formBuilder: UntypedFormBuilder){}
 
   ngOnInit(): void {
     console.log("Welcome to Configure Lab1 ")
@@ -154,7 +154,7 @@ Step4(val1:any,val2:any){
 }
  
 Reset(){
-  this._router.navigate(['/meraki'])
+  this._router.navigate(['/meraki'], { skipLocationChange: true })
   .then(() => {
     window.location.reload();
   });

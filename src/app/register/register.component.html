@@ -78,7 +78,7 @@
           <button type="submit" class="btn btn-primary" routerlink="">SAVE</button>
           <button type="button" class="btn btn-secondary ml-2" (click)="onReset()">Cancel</button>
         </div>
-        <div>Already Have an Account? <a routerLink="/login">LogIn</a></div>
+        <div>Already Have an Account? <a routerLink="/login" [skipLocationChange]="true">LogIn</a></div>
       </form>
     </div>
   </div>

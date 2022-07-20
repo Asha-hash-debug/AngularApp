@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { DashboardService } from '../meraki/dashboard.service';
@@ -30,7 +30,7 @@ export class TrainerMerakiComponent implements OnInit {
   Step4:any="processing";
 
   constructor(private dashboardservice:DashboardService,private _router:Router,
-    private _formBuilder: FormBuilder){}
+    private _formBuilder: UntypedFormBuilder){}
 
   ngOnInit(): void {
     console.log("Welcome to Configure Lab1 ")
@@ -144,7 +144,7 @@ ConfigureLab3(val1:any,val2:any){
 }
 
 Reset(){
-  this._router.navigate(['/trainermeraki'])
+  this._router.navigate(['/trainermeraki'], { skipLocationChange: true })
   .then(() => {
     window.location.reload();
   });

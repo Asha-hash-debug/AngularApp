@@ -32,7 +32,7 @@ export class AuthService {
       if (this.LoginRole["Role"]=="Admin"){
         return true;
       }else{
-        this.router.navigate(["/login"])
+        this.router.navigate(["/login"], { skipLocationChange: true, replaceUrl: false})
         return false;
       }
   }
