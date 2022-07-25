@@ -8,7 +8,7 @@ import * as alertyfy from 'alertifyjs'
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  title = "Bitvuenetworks";
+  title = "Bitvue Networks";
   LoginUser:any;
   UserList: any;
   LoginRole: any;
