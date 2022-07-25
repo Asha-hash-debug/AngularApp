@@ -48,6 +48,7 @@ export class TrainerMerakiComponent implements OnInit {
 
       this.OrganizationName = val;
       this.dashboardservice.getNetworks(val).subscribe(response => {
+        this.ECMSNetworks = [];
         this.networks = response;
         console.log(this.networks)
         for (let network of this.networks){ 
